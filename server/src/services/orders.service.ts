@@ -12,8 +12,24 @@ class OrdersService {
   getOrdersList(): TOrder[] {
     return this.orders.getAll();
   }
+  getOrderById(id: string): TOrder {
+    return this.orders.getById(id);
+  }
   createOrder(order: TOrderData): TOrder {
-    const created = this.orders.create(order);
+    const newOrder:TOrderData = {
+      sellerStore: order.sellerStore,
+      shippingMethod: order.shippingMethod,
+      externalOrderNumber: order.externalOrderNumber,
+      buyerFullName: order.buyerFullName,
+      buyerPhoneNumber: order.buyerPhoneNumber,
+      buyerEmail: order.buyerEmail,
+      shippingAddress: order.shippingAddress,
+      shippingCity: order.shippingCity,
+      shippingRegion: order.shippingRegion,
+      shippingCountry: order.shippingCountry,
+      lineItems: order.lineItems,
+    };
+    const created = this.orders.create(newOrder);
     return created;
   }
   deleteOrderById(orderId: string): TOrder {

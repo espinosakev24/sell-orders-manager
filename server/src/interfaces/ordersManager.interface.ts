@@ -1,11 +1,11 @@
-import { IOrder, IOrderData } from './order.types';
+import { TOrder, TOrderData } from './order.types';
 
 interface IOrdersManager {
-  orders: IOrder[],
-  create(order: IOrderData): IOrder,
-  getAll(): IOrder[],
-  getById(id: string): IOrder,
-  editById(id: string): IOrder,
-  deleteById(id: string): IOrder
+  orders: TOrder[],
+  create(order: TOrderData): TOrder,
+  getAll(): TOrder[],
+  getById(id: string): TOrder,
+  editById?(id: string): TOrder,
+  deleteById(id: string): TOrder
 }
 export default IOrdersManager;

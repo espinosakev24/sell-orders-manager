@@ -10,6 +10,8 @@ const ordersService = new OrdersService(orders);
 const ordersController = new OrdersController(ordersService);
 
 router.route('/').get(ordersController.getOrderList);
+router.route('/:id').get(ordersController.getOrderById);
+router.route('/').post(ordersController.createNewOrder);
 router.route('/:id').delete(ordersController.deleteOrderById);
 
 export default router;
