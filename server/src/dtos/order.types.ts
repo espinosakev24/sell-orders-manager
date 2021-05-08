@@ -38,7 +38,7 @@ type TOrder = {
   shippingCountry?: string,
   lineItems?: TProduct[],
   creationDate?: string,
-  internalOrderNumber?: number,
+  internalOrderNumber: string,
   rules?: TShippingRules
 }
 

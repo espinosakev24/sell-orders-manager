@@ -1,5 +1,5 @@
-import IOrdersManager from '../interfaces/ordersManager.interface';
-import { TOrder, TOrderData } from '../interfaces/order.types';
+import IOrdersManager from '../dtos/ordersManager.interface';
+import { TOrder, TOrderData } from '../dtos/order.types';
 import OrdersInMemory from './../storage/orders';
 
 class OrdersService {

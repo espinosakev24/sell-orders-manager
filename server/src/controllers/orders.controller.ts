@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { TOrder } from '../interfaces/order.types';
+import { TOrder } from '../dtos/order.types';
 import OrdersService from './../services/orders.service';
 
 class OrderController {

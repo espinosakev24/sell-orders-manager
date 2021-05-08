@@ -1,17 +1,25 @@
-import IOrdersManager from '../interfaces/ordersManager.interface';
-import { TOrder, TOrderData } from '../interfaces/order.types';
+import IOrdersManager from '../dtos/ordersManager.interface';
+import { TOrder, TOrderData } from '../dtos/order.types';
+import moment from 'moment';
 
 class OrdersInMemory implements IOrdersManager {
   orders: TOrder[] = [{
     id: '1',
+    internalOrderNumber: ''
   }]
 
   create(order: TOrderData): TOrder {
-    const date = Date.now();
+    const randomNumber = Math.random() * 101;
+    const date = new Date();
+    const id = '_' + Math.random().toString(36).substr(2, 9);
+    const dateFormat = moment(date).format('YYYY-MM-DD');
+    const internalOrderNumber = 'MSE-' + date.getTime().toString() + '-' + Math.floor(randomNumber).toString();
+
     const newOrder: TOrder = {
       ...order,
-      id: '_' + Math.random().toString(36).substr(2, 9),
-      creationDate: date.toString()
+      id: id,
+      internalOrderNumber: internalOrderNumber,
+      creationDate: dateFormat
     };
     this.orders.push(newOrder);
     return newOrder;
