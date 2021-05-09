@@ -3,10 +3,7 @@ import { TOrder, TOrderData } from '../dtos/order.types';
 import moment from 'moment';
 
 class OrdersInMemory implements IOrdersManager {
-  orders: TOrder[] = [{
-    id: '1',
-    internalOrderNumber: ''
-  }]
+  orders: TOrder[] = [];
 
   create(order: TOrderData): TOrder {
     const randomNumber = Math.random() * 101;

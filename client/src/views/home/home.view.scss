@@ -1,0 +1,37 @@
+@import './../../styles/variables.scss';
+
+.home-view {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    padding: 32px 0;
+    font: normal 800 14px/21px $main-font;
+    .home-content-text {
+        padding: 60px 0;
+        .home-content-container {
+            padding: 16px 64px;
+        }
+        h1, h2, p {
+            color: $black;
+        }
+        h1 {
+            font: normal 800 #{$font-xxl}/50px $main-font;
+            margin-bottom: 100px;
+        }
+        p {
+            font: normal 300 #{$font-lg}/21px $main-font;
+            text-align: justify;
+        }
+    }
+    .home-content-img {
+        display: flex;
+        margin: 32px 64px 0 0;
+        img {
+            transform: scaleX(-1);
+        }
+        @media (max-width: 1200px) {
+            display: none;
+        }
+    }
+
+}

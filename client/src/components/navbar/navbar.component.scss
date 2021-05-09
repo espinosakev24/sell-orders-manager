@@ -1,0 +1,40 @@
+@import './../../styles/variables.scss';
+
+.navbar-component {
+    padding: 0 32px;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: $primary-color;
+    @include width-max-sm {
+        button {
+            padding: 5px 10px;
+        }
+    }
+    a {
+        @include flexCenter();
+        color: inherit;
+        text-decoration: none;
+      }
+    .items-group {
+        display: flex;
+        padding: 0;
+        justify-content: space-between;
+        li {
+            @include flexCenter();
+            list-style-type: none;
+            padding: 0 16px;
+            color: $white;
+            font: normal 400 #{$font-lg}/21px $main-font;
+            cursor: pointer;
+            height: 100%;
+        }
+        .regular-item {
+            box-sizing: border-box;
+            &:hover {
+                border-bottom: 2px solid $white;
+                box-sizing: border-box;
+            }
+        }
+    }
+}

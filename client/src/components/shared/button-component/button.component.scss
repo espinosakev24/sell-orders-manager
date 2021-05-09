@@ -1,0 +1,21 @@
+@import './../../../styles/variables.scss';
+
+.button-component {
+    border: none;
+    width: 100%;
+    background-color: $primary-color;
+    font: normal 400 #{$font-lg}/21px $main-font;
+    border-radius: 5px;
+    color: $white;
+    border: 1px solid $white;
+    padding: 10px 16px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: ease-in-out .2s;
+    &:hover {
+        background-color: $white;
+        color: $primary-color;
+        font-weight: 700;
+        border: 1px solid $primary-color;
+    }
+}

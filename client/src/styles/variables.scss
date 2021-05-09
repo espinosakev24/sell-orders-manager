@@ -1,0 +1,52 @@
+$main-font: 'Mulish', sans-serif;
+$font-sm: 12px;
+$font-md: 14px;
+$font-lg: 18px;
+$font-xl: 30px;
+$font-xxl: 50px;
+
+
+$primary-color: #2b519a;
+$white: #fff;
+$black: #171819;
+$gray: #444444;
+$gray-tiny: #e5e5e5;
+
+$sm-mobiles-min: 320px;
+$sm-mobiles-max: 480px;
+
+$md-tablets-min: 481px;
+$md-tablets-max: 768px;
+
+$lg-laptops-min: 769px;
+$lg-laptops-max: 1024px;
+
+$xl-large-screens-min: 1025px;
+$xl-large-screens-max: 1200px;
+
+$xxl-extra-large-screens-min: 1201px;
+
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin width-max-sm {
+    @media (max-width: $sm-mobiles-min) {
+      @content;
+    }
+  }
+  
+  @mixin lg-max {
+    @media (min-device-width: $lg-laptops-min) {
+      @content;
+    }
+  }
+  
+  @mixin md-min {
+    @media (min-width: #{$md-tablets-min}) {
+      @content;
+    }
+  }
