@@ -1,0 +1,22 @@
+@import './../../../styles/variables.scss';
+
+.order-detail-component {
+    color: $gray;
+    font: normal 300 #{$font-lg}/21px $main-font;;
+    .order-definition {
+        display: flex;
+        justify-content: space-between;
+    }
+    .order-property, .order-value {
+        margin: 4px 0;
+    }
+    .order-property {
+        flex: 70%;
+    }
+    .order-value {
+        font-weight: 700;
+        flex: 30%;
+        text-align: center;
+    }
+}
+

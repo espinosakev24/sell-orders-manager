@@ -16,7 +16,8 @@ class OrdersInMemory implements IOrdersManager {
       ...order,
       id: id,
       internalOrderNumber: internalOrderNumber,
-      creationDate: dateFormat
+      creationDate: dateFormat,
+      lineItems: order.lineItems
     };
     this.orders.push(newOrder);
     return newOrder;

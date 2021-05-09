@@ -1,3 +1,5 @@
+@import './../../styles/variables.scss';
+
 .orders-list-component {
     padding: 32px 16px;
     display: flex;
@@ -8,7 +10,6 @@
         text-decoration: none;
     }
     .order-item-container {
-        cursor: pointer;
         flex: 1 0 40%;
         &:nth-child(odd) {
             margin-right: 32px;
@@ -17,5 +18,29 @@
                 flex: 1 0 100%;
             }
         }
+    }
+}
+
+.no-orders-section {
+    border: 1px solid $gray-tiny;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+    padding: 32px 300px;
+    border-radius: 10px;
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    h3 {
+        margin-top: 0;
+        color: $gray;
+        font: normal 700 #{$font-xxl}/50px $main-font;
+    }
+    img {
+        width: 200px;
+        margin: 0 0 64px 0;
     }
 }

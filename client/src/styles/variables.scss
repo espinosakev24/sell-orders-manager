@@ -11,6 +11,8 @@ $white: #fff;
 $black: #171819;
 $gray: #444444;
 $gray-tiny: #e5e5e5;
+$green: #659B5E;
+$red: #DC493A;
 
 $sm-mobiles-min: 320px;
 $sm-mobiles-max: 480px;
@@ -40,7 +42,7 @@ $xxl-extra-large-screens-min: 1201px;
   }
   
   @mixin lg-max {
-    @media (min-device-width: $lg-laptops-min) {
+    @media (max-width: $lg-laptops-min) {
       @content;
     }
   }

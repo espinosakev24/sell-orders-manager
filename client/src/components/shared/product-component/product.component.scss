@@ -1,5 +1,5 @@
 @import './../../../styles/variables.scss';
-.orderItem-component {
+.product-component {
     border: 1px solid $gray-tiny;
     border-radius: 10px;
     font-family: $main-font;
@@ -11,15 +11,21 @@
         color: $black;
         margin: 0;
     }
+    .product-name {
+        font-weight: 700;
+    }
     padding: 16px;
     .item-definition {
         display: flex;
         justify-content: space-between;
     }
     .item-property {
-        @include flexCenter();
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
         img {
-            margin-right: 16px;
+            // margin-right: 16px;
         }
     }
     .item-value {
@@ -28,21 +34,5 @@
     }
     hr {
         border: 1px solid $gray-tiny;
-        border-bottom: none;
-    }
-    .item-button-actions {
-        border: none;
-        color: white;
-        font-weight: 700;
-        font-family: $main-font;
-        padding: 8px 16px;
-        border-radius: 10px;
-        cursor: pointer;
-        &[name=details] {
-            background-color: $green;
-        }
-        &[name=delete] {
-            background-color: $red;
-        }
     }
 }
