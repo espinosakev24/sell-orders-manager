@@ -1,0 +1,10 @@
+{
+  "short_name": "Orders manager",
+  "name": "Sell orders manager",
+  "icons": [
+    {
+      "src": "sellordericon.svg",
+      "type": "image/svg"
+    }
+  ]
+}
