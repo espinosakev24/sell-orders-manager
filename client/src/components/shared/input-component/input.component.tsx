@@ -10,7 +10,7 @@ interface IInput {
 
 const Input: React.FunctionComponent<IInput> = (props: IInput) => {
   const onChangeHandler = (event: any) => {
-    props.changeHandler(event);
+    props.changeHandler(event.target.innerText);
   };
 
   const typeChecker = (event: any) => {

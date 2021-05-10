@@ -1,6 +1,6 @@
 type TProduct = {
-    name: string,
-    quantity: number,
-    weight: number
+    productName: string,
+    productQty: number,
+    productWeight: number
 }
 export default TProduct;

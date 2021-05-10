@@ -83,9 +83,9 @@ const OrderDetails: React.FunctionComponent = () => {
             {orderDetails.lineItems?.map((product, key) => (
               <div key={key}>
                 <Product
-                  name={product.productName}
-                  weight={product.productWeight}
-                  quantity={parseInt(product.productQty)}
+                  productName={product.productName}
+                  productWeight={product.productWeight}
+                  productQty={parseInt(product.productQty)}
                 />
               </div>
             ))}

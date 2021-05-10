@@ -10,7 +10,7 @@ const Product: React.FunctionComponent<TProduct> = (props: TProduct) => {
       <div className="item-definition">
         <div className="item-property">
           <img src={productIcon} alt="" />
-          <p className="product-name">{props.name}</p>
+          <p className="product-name">{props.productName}</p>
           <div className="empty">&nbsp;</div>
         </div>
       </div>
@@ -20,7 +20,7 @@ const Product: React.FunctionComponent<TProduct> = (props: TProduct) => {
         <div className="item-property">
           <p>Weight:</p>
         </div>
-        <p className="item-value">{props.weight}</p>
+        <p className="item-value">{props.productWeight}</p>
       </div>
       <hr />
 
@@ -28,7 +28,7 @@ const Product: React.FunctionComponent<TProduct> = (props: TProduct) => {
         <div className="item-property">
           <p>Quantity:</p>
         </div>
-        <p className="item-value">{props.quantity}</p>
+        <p className="item-value">{props.productQty}</p>
       </div>
     </section>
   );

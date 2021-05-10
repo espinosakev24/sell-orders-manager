@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Product
   from '../../components/shared/product-component/product.component';
 import Input from './../../components/shared/input-component/input.component';
+import ProductForm from '../../components/product-form/product-form';
+
 import cityIcon from './city.svg';
 import phoneIcon from './phone.svg';
 import emailIcon from './email.svg';
@@ -14,8 +16,17 @@ import numberIcon from './number.svg';
 import methodIcon from './method.svg';
 
 import './order-creation.view.scss';
+import TProduct from '../../dtos/product.type';
 
 const OrderCreation: React.FunctionComponent = () => {
+  const [products, setProducts] = useState<TProduct[]>([]);
+
+  const addProdutHandler = (product: TProduct) => {
+    setProducts([
+      product,
+      ...products,
+    ]);
+  };
   return (
     <>
       <section className="order-creation-component">
@@ -45,7 +56,7 @@ const OrderCreation: React.FunctionComponent = () => {
             <Input
               changeHandler={(e) => console.log(e)}
               icon={phoneIcon}
-              type="text"
+              type="number"
               placeholder='Buyer phone number'
             />
           </div>
@@ -95,11 +106,19 @@ const OrderCreation: React.FunctionComponent = () => {
           </div>
         </article>
         <article className="product-creation-wrapper">
-          <Product
-            name='Product1'
-            quantity={23}
-            weight={2}
-          />
+          <h3>Add products</h3>
+          <ProductForm addProductToList={addProdutHandler}/>
+          <section className="products-container">
+            {products.reverse().map((product, key) => (
+              <div key={key}>
+                <Product
+                  productName={product.productName}
+                  productQty={product.productQty}
+                  productWeight={product.productWeight}
+                />
+              </div>
+            ))}
+          </section>
         </article>
       </section>
       <div className="create-order-button-wrapper">

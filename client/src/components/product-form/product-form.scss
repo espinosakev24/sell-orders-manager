@@ -1,0 +1,41 @@
+@import './../../styles/variables.scss';
+
+.product-form-component {
+    display: flex;
+    flex-direction: column;
+    input {
+        color: $gray;
+        font: normal 700 #{$font-md}/21px $main-font;
+        border: 1px solid $gray-tiny;
+        outline: none;
+        padding: 8px 16px;
+        margin-bottom: 8px;
+        border-radius: 10px;
+        width: 100px;
+        &::placeholder {
+            color: gray;
+            font-weight: 300;
+        }
+    }
+    [name=productName] {
+        width: 100%;
+    }
+    .prodcut-name-container {
+        display: flex;
+        justify-content: center;
+    }
+    .prodcut-properties-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .add-product {
+        font: normal 800 #{$font-sm}/21px $main-font;
+        background-color: $primary-color;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-bottom: 16px;
+    }
+}
