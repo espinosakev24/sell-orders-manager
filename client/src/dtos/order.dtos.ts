@@ -15,21 +15,21 @@ type TSellOrder = {
 }
 
 type TOrderCreation = {
-  sellerStore?: string,
-  shippingMethod?: string,
-  externalOrderNumber?: number,
-  buyerFullName?: string,
-  buyerPhoneNumber?: number,
-  buyerEmail?: string,
-  shippingAddress?: string,
-  shippingCity?: string,
-  shippingRegion?: string,
-  shippingCountry?: string,
-  lineItems?: TProduct[],
+  sellerStore: string,
+  shippingMethod: string,
+  externalOrderNumber: number,
+  buyerFullName: string,
+  buyerPhoneNumber: number,
+  buyerEmail: string,
+  shippingAddress: string,
+  shippingCity: string,
+  shippingRegion: string,
+  shippingCountry: string,
+  lineItems: TProduct[],
 }
 type TProduct = {
   productName: string,
-  productQty: string,
+  productQty: number,
   productWeight: number
 }
 type TShippingRules = {
@@ -69,4 +69,5 @@ export type {
   TOrderCreation,
   TOrderDetails,
   TOrderDetailItem,
+  TProduct,
 };

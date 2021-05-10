@@ -5,12 +5,15 @@ interface IInput {
     type?: string,
     placeholder: string,
     icon?: any,
-    changeHandler(event: any): void
+    nameId: string,
+    changeHandler(nameId: string, value: string): void,
 }
 
 const Input: React.FunctionComponent<IInput> = (props: IInput) => {
   const onChangeHandler = (event: any) => {
-    props.changeHandler(event.target.innerText);
+    let eventValue = event.target.innerText;
+    if (!isNaN(eventValue)) eventValue = parseInt(eventValue);
+    props.changeHandler(props.nameId, eventValue);
   };
 
   const typeChecker = (event: any) => {
@@ -28,6 +31,7 @@ const Input: React.FunctionComponent<IInput> = (props: IInput) => {
           contentEditable='true'
           onKeyPress={(e) => typeChecker(e)}
           onInput={(e) => onChangeHandler(e)}
+          id={props.nameId}
         ></div>
       </div>
       {

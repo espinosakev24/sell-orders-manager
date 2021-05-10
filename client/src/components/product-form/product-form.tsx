@@ -12,7 +12,7 @@ type TProductForm = {
 const ProductForm: React.FunctionComponent<TProductForm> = (
     props: TProductForm,
 ) => {
-  const [product, setProduct] = useState({
+  const [product, setProduct] = useState<TProduct>({
     productName: '',
     productQty: 0,
     productWeight: 0,
@@ -20,9 +20,10 @@ const ProductForm: React.FunctionComponent<TProductForm> = (
 
   const onChangeHandler = (event: any) => {
     const {name, value} = event.target;
+
     setProduct({
       ...product,
-      [name]: value,
+      [name]: !isNaN(value) ? parseInt(value) : value,
     });
   };
   const pushProduct = () => {

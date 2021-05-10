@@ -38,6 +38,26 @@
             margin-right: 12px;
         }
         margin-bottom: 20px;
+        .select-element {
+            cursor: pointer;
+            width: 340px;
+            border-radius: 28px;
+            padding: 17px 24px;
+            margin-right: 12px;
+            -webkit-box-shadow: 0px 2px 5px 0px rgba(166,166,166,1);
+            -moz-box-shadow: 0px 2px 5px 0px rgba(166,166,166,1);
+            box-shadow: 0px 2px 5px 0px rgba(166,166,166,1);
+            border: none;
+            font: normal 700 #{$font-lg}/22px $main-font;
+            color: #888787;
+            outline: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            &::-ms-expand {
+                display: none;
+            }
+        }
     }
     .products-container {
         max-height: 240px;

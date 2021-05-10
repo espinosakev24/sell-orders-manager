@@ -85,7 +85,7 @@ const OrderDetails: React.FunctionComponent = () => {
                 <Product
                   productName={product.productName}
                   productWeight={product.productWeight}
-                  productQty={parseInt(product.productQty)}
+                  productQty={product.productQty}
                 />
               </div>
             ))}

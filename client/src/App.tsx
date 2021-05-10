@@ -15,15 +15,13 @@ import OrdersList from './views/orders-list/orders-list.view';
 import OrderItem from './components/shared/order-item/order-item.component';
 import OrderDetails from './views/order-details/order-details.view';
 
+// TODO -
+//      - Implement Http service
+//      - Delivering promises calcs
+//      - Implement Responsive views
 const App: React.FunctionComponent = () => {
   return (
     <div className="App">
-      {/* <OrderItem
-        sellerStore='StoreX'
-        shippingMethod='methodx'
-        creationDate='12-08-02'
-        externalOrderNumber={3054375560}
-      /> */}
       <Router>
         <NavBar />
         <Layout>
