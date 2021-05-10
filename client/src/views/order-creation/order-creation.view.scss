@@ -1,0 +1,49 @@
+@import './../../styles/variables.scss';
+
+.order-creation-component {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 16px 0 16px;
+    @include lg-max {
+        flex-direction: column;
+    }
+    .order-information-wrapper {
+        border-right: 1px solid $gray-tiny;
+        padding: 16px 32px;
+        flex: 70%;
+        h3 {
+            margin: 0 0 32px 0;
+            font: normal 800 #{$font-xl}/21px $main-font;
+            color: $gray;
+        }
+        .input-component {
+            max-width: 340px;
+        }
+    }
+    .product-creation-wrapper {
+        flex: 30%;
+        padding: 16px 32px;
+    }
+    .input-group {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        div {
+            flex: 40%;
+            margin-right: 12px;
+        }
+        margin-bottom: 20px;
+    }
+}
+.create-order-button-wrapper {
+    @include flexCenter();
+    button {
+        font: normal 800 #{$font-lg}/21px $main-font;
+        background-color: $primary-color;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+}

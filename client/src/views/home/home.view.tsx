@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Button from '../../components/shared/button-component/button.component';
 import './home.view.scss';
 
@@ -20,7 +21,9 @@ const Home: React.FunctionComponent = () => {
            debitis, tenetur sint, maiores incidunt veniam commodi est
            magnam non doloribus!
           </p>
-          <Button label="Get started" />
+          <Link to='/orders'>
+            <Button label="Get started" />
+          </Link>
         </div>
       </div>
       <div className="home-content-img">

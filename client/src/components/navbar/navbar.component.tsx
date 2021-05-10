@@ -20,9 +20,11 @@ const NavBar: React.FunctionComponent = () => {
       </ul>
 
       <ul className="items-group">
-        <li>
-          <Button label={'New order'} />
-        </li>
+        <Link to="/orders/create">
+          <li>
+            <Button label={'New order'} />
+          </li>
+        </Link>
       </ul>
     </nav>
   );
