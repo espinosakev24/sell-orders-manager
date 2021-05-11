@@ -1,6 +1,25 @@
+@import './../../styles//variables.scss';
+
 .layout-component {
     max-width: 90vw;
     // height: 90vh;
     margin: auto;
     box-sizing: border-box;
+    // position: relative;
+}
+.mockorder {
+    position: fixed;
+    bottom: 40px;
+    left: 12px;
+    background-color: tomato;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 10px;
+    opacity: .3;
+    cursor: pointer;
+    transition: ease-in .1s;
+    font: normal 700 #{$font-sm}/22px $main-font;
+    &:hover {
+        opacity: 1;
+    }
 }

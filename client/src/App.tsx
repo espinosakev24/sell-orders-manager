@@ -26,7 +26,7 @@ const App: React.FunctionComponent = () => {
         <NavBar />
         <Layout>
           <Switch>
-            <Route exact path='/home' component={Home} />
+            <Route exact path={['/', '/home']} component={Home} />
             <Route path='/orders/create' component={OrderCreation} />
             <Route exact path='/orders' component={OrdersList} />
             <Route path='/orders/:id'>

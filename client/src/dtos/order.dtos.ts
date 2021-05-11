@@ -14,6 +14,11 @@ type TSellOrder = {
   creationDate: string,
 }
 
+type TMethod = {
+  id: string,
+  name: string
+}
+
 type TOrderCreation = {
   sellerStore: string,
   shippingMethod: string,
@@ -70,4 +75,5 @@ export type {
   TOrderDetails,
   TOrderDetailItem,
   TProduct,
+  TMethod,
 };

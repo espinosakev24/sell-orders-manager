@@ -4,8 +4,10 @@ import Product
 import Input from './../../components/shared/input-component/input.component';
 import ProductForm from '../../components/product-form/product-form';
 import TProduct from '../../dtos/product.type';
-import {TOrderCreation} from '../../dtos/order.dtos';
+import {TMethod, TOrderCreation} from '../../dtos/order.dtos';
 import {Link} from 'react-router-dom';
+import promiseCalcs from './../../services/promises.service';
+import httpService from './../../services/http.service';
 
 import cityIcon from './city.svg';
 import phoneIcon from './phone.svg';
@@ -29,6 +31,7 @@ const shippingmethodsEndpoint = 'http://localhost:4000/shippingmethods/';
 
 const OrderCreation: React.FunctionComponent = () => {
   const [products, setProducts] = useState<TProduct[]>([]);
+  // const [methodId, setMethodId] = useState('');
   const [order, setOrder] = useState<TOrderCreation>({
     sellerStore: '',
     shippingMethod: '',
@@ -42,7 +45,8 @@ const OrderCreation: React.FunctionComponent = () => {
     shippingCountry: '',
     lineItems: [],
   });
-  const [methods, setMethods] = useState([]);
+  const [methods, setMethods] = useState<TMethod[]>([]);
+  const [methodId, setMethodId] = useState('');
 
   useEffect(() => {
     axios.get(shippingmethodsEndpoint)
@@ -50,8 +54,7 @@ const OrderCreation: React.FunctionComponent = () => {
           setMethods(res.data);
         });
   }, []);
-
-  const addProdutHandler = (product: TProduct) => {
+  const updateProducts = function(product: TProduct) {
     setOrder({
       ...order,
       lineItems: [...products, product],
@@ -61,6 +64,27 @@ const OrderCreation: React.FunctionComponent = () => {
       ...products,
     ]);
   };
+  const addProdutHandler = (product: TProduct) => {
+    if (!methodId) {
+      updateProducts(product);
+      return;
+    }
+    const weight = promiseCalcs.orderWeight([...products, product]);
+    httpService.getWeightAvailability(methodId, {weight: weight})
+        .then((res) => {
+          updateProducts(product);
+        })
+        .catch((err) => {
+          swal({
+            title: 'Weight not allowed',
+            text: 'The total weight of your products is not allowed ' +
+                  'for the shipping method selected',
+            icon: 'warning',
+            dangerMode: true,
+          });
+        });
+  };
+
   const changeHandler = (nameId: string, value: string | number) => {
     setOrder({
       ...order,
@@ -68,11 +92,35 @@ const OrderCreation: React.FunctionComponent = () => {
     });
   };
   const handleDropdownSelect = (event: any) => {
-    setOrder({
-      ...order,
-      shippingMethod: event.target.value,
-    });
+    const el: any = event.target;
+    const id = el.options[el.selectedIndex].id;
+    const selected: string = el.value;
+
+    const totalWeight = promiseCalcs.orderWeight(products);
+    console.log(totalWeight);
+
+
+    httpService.getWeightAvailability(id, {weight: totalWeight})
+        .then((res: any) => {
+          setOrder({
+            ...order,
+            shippingMethod: selected,
+          });
+          setMethodId(id);
+          console.log(res);
+        })
+        .catch((error) => {
+          el.value = 'default';
+          swal({
+            title: 'Weight not allowed',
+            text: 'The total weight of your products is not allowed ' +
+                  'for the shipping method selected',
+            icon: 'warning',
+            dangerMode: true,
+          });
+        });
   };
+
   const createOrderHandler = (event: any) => {
     const orderValues = Object.values(order);
     if (!orderValues.every((i) => typeof i === 'number' ? true: i.length)) {
@@ -94,6 +142,7 @@ const OrderCreation: React.FunctionComponent = () => {
       });
     });
   };
+
   return (
     <>
       <section className="order-creation-component">
@@ -180,8 +229,8 @@ const OrderCreation: React.FunctionComponent = () => {
                 disabled
                 value="default"
               >Select an shipping method</option>
-              {methods.map((method: any, key) => (
-                <option key={key}>
+              {methods.map((method: TMethod, key) => (
+                <option key={key} id={method.id}>
                   {method.name}
                 </option>
               ))}
